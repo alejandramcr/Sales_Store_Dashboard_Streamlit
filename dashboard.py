@@ -18,9 +18,9 @@ def formato_number(valor, prefijo = ''):
 
 
 # Abrimos las bases de datos de manera local
-df_ventas = pd.read_csv('base_ventas.csv')
+#df_ventas = pd.read_csv('base_ventas.csv')
 # Abrimos las bases de datos de manera remota
-#df_ventas = pd.read_csv('https://raw.githubusercontent.com/alejandramcr/Sales_Store_Dashboard_Streamlit/main/base_ventas.csv')
+df_ventas = pd.read_csv('https://raw.githubusercontent.com/alejandramcr/Sales_Store_Dashboard_Streamlit/main/base_ventas.csv')
 df_ventas['valor_total'] = (df_ventas.price*df_ventas.cantidad_itens) + (df_ventas.freight_value*df_ventas.cantidad_itens)
 df_ventas['order_purchase_timestamp'] = pd.to_datetime(df_ventas['order_purchase_timestamp'])
 df_ventas['tipo_producto'] = df_ventas['product_category_name'].str.split('_').str[0]
